@@ -83,7 +83,7 @@ function queueRunner() {
 // -------------------------------------------------
 function addMenu() {
   var ui = SpreadsheetApp.getUi();
-  ui.addMenu('YouTube DVR')
+  ui.createMenu('YouTube DVR')
   .addItem('Add channel', 'addNewChannel')
   .addSeparator()
   .addItem('Queue videos', 'queueRunner')
