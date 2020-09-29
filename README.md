@@ -10,15 +10,11 @@ Easy to add new channels
 Ability to specify a different playlist for each channel
 
 ## Installation
-- Create a new blank Google Spreadsheet https://docs.google.com/spreadsheets/
+- Create a copy of the Google Sheet by [clicking here](https://docs.google.com/spreadsheets/d/1683iUmx6bCU_iIJwJGpABGLy9jHngtOTPrRn9VF_e5I/copy#gid=1438744897)
 - Select <kbd>Tools</kbd> > <kbd>Script Editor</kbd> from the spreadsheet main menu
-- Copy & paste the code from [Code.gs](https://github.com/tylermammone/YouTube-DVR/blob/master/Code.gs) in this GitHub repository
-- Select <kbd>File</kbd> > <kbd>Save</kbd> to save the script
-- Select <kbd>Resources</kbd> > <kbd>Advanced Google services...</kbd> from the script editor main menu. Turn on `YouTube Data API v3`
-- Reload/refresh the spreadsheet
-- Accept API permissions when prompted
+- Select <kbd>Run</kbd> > <kbd>Run function</kbd> > <kbd>install</kbd> from the script editor main menu.
+- Review and accept permissions when prompted (You may need to click Advanced > Go to YouTube DVR)
 - Look for the new <kbd>YouTube DVR</kbd> option in the spreadsheet main menu
-- Select <kbd>YouTube DVR</kbd> > <kbd>Install</kbd>
 - Start adding your favorite channels using <kbd>YouTube DVR</kbd> > <kbd>Add channel</kbd>
 
 ## Usage
