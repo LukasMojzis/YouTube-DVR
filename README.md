@@ -2,7 +2,7 @@
 
 [![Maintained](https://img.shields.io/maintenance/yes/2020)](https://github.com/tylermammone/YouTube-DVR/commits/master) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/tylermammone/YouTube-DVR/issues) [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Ftylermammone%2FYouTube-DVR&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-When your favorite YouTube channels upload new videos, automatically add them to your playlists. Useful for queuing new uploads into your Watch later list, but can be used with any combination of channel/playlist. Specify a different playlist for each channel to keep your favorites organized without missing new content.
+When your favorite YouTube channels upload new videos, automatically add them to your playlists. Useful for queuing new videos into your Watch later list, but can be used with any combination of channel/playlist. Specify a different playlist for each channel to keep your favorites organized without missing new content.
 
 ## Features
 Easy install  
