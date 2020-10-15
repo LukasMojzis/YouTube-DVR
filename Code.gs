@@ -92,6 +92,7 @@ function addMenu() {
   .addItem('Turn off', 'stopTrigger')
   .addToUi();
 }
+
 function addNewChannel() {
   var ui = SpreadsheetApp.getUi();
   var newChannelId = ui.prompt(
@@ -104,25 +105,32 @@ Example\n\
   );
   if (newChannelId.getSelectedButton() == ui.Button.OK && newChannelId.getResponseText().length) {
     var channelId = newChannelId.getResponseText();
-    var newPlaylistId = ui.prompt(
-      'Enter the playlist ID',
-      'Browse to the playlist you want videos added to, and copy the ID from the end of the URL. (Enter WL to use your Watch later list.)\n\n\
+    var alreadyQueuing = channelsSheet.getRange(2, 1, channelsSheet.getLastRow() - 1, 3).getValues();
+    var alreadyQueuingFlat = alreadyQueuing.map(function(row) {return row[0];});
+    if (alreadyQueuingFlat.indexOf(channelId) == -1) {
+      var newPlaylistId = ui.prompt(
+        'Enter the playlist ID',
+        'Browse to the playlist you want videos added to, and copy the ID from the end of the URL. (Enter WL to use your Watch later list.)\n\n\
 Example\n\
 - URL: https://www.youtube.com/playlist?list=PLKTLcJD2K0kXKhVpB3gbn80qSG6ykSjHD\n\
 - Playlist ID: PLKTLcJD2K0kXKhVpB3gbn80qSG6ykSjHD',
-      ui.ButtonSet.OK_CANCEL
-    );
-    if (newPlaylistId.getSelectedButton() == ui.Button.OK && newPlaylistId.getResponseText().length) {
-      var playlistId = newPlaylistId.getResponseText();
-      channelsSheet.appendRow([channelId, playlistId, '*Title auto added first queue run*', date]);
-      ui.alert('Added! Videos will be queued soon...');
+        ui.ButtonSet.OK_CANCEL
+      );
+      if (newPlaylistId.getSelectedButton() == ui.Button.OK && newPlaylistId.getResponseText().length) {
+        var playlistId = newPlaylistId.getResponseText();
+        channelsSheet.appendRow([channelId, playlistId, '*Title auto added first queue run*', date]);
+        ui.alert('Added! Videos will be queued soon...');
+      } else {
+        ui.alert('You forgot to enter the playlist ID!');
+      }
     } else {
-      ui.alert('You forgot to enter the playlist ID!');
+      ui.alert('It looks like you might have already added that channel...');
     }
   } else {
     ui.alert('You forgot to enter the channel ID!');
   }
 }
+
 function addVideoToPlaylist(playlistId, videoId) {
   try {
     YouTube.PlaylistItems.insert({
@@ -139,6 +147,7 @@ function addVideoToPlaylist(playlistId, videoId) {
     Logger.log('Error: ' + e.message);
   }
 }
+
 function install() {
   var ui = SpreadsheetApp.getUi();
   if (!channelsSheet) {
@@ -174,9 +183,11 @@ function install() {
   .create();
   ui.alert('Installed! Use "Add channel" to start queuing videos from your first channel...');
 }
+
 function onOpen(e) {
   addMenu();
 }
+
 function stopTrigger() {
   var triggers = ScriptApp.getProjectTriggers();
   for (var i = 0; i < triggers.length; i++) {
