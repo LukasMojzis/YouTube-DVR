@@ -33,3 +33,8 @@ https://github.com/tylermammone
 https://twitter.com/tylermammone
 
 https://tylermammone.com
+
+## Changes
+If you modify your copy of the script, please feel free to create a pull request. I would be happy to review any new features or optimizations you make, and possibly include them. To update your copy when changes are made, open the script editor and replace the old code with the new code found in Code.gs  
+
+Wednesday, October 14, 2020 - Script now checks if you already added a channel, before adding it.
